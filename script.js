@@ -62,7 +62,7 @@ function displayCryptoList(data) {
 }
 
 // Toggle cryptocurrency selection for comparison
-function toggleSelection(id, name, price, symbol, price_change_percentage_24h, market_cap) {
+function toggleSelection(id, name, current_price, symbol, price_change_percentage_24h, market_cap) {
     const card = $(`#crypto-${id}`);
     const existingIndex = selectedCryptos.findIndex((crypto) => crypto.id === id);
 
@@ -71,7 +71,7 @@ function toggleSelection(id, name, price, symbol, price_change_percentage_24h, m
         card.removeClass("selected");
     } else {
         if (selectedCryptos.length < 5) {
-            selectedCryptos.push({ id, name, price, symbol, price_change_percentage_24h, market_cap });
+            selectedCryptos.push({ id, name, current_price, symbol, price_change_percentage_24h, market_cap });
             card.addClass("selected");
         } else {
             showToast("You can only select up to 5 cryptocurrencies.");
@@ -105,7 +105,7 @@ function displayComparison() {
         const item = `
             <div class="comparison-item">
                 <h4>${crypto.name} (${crypto.symbol.toUpperCase()})</h4>
-                <p>Price: CA$${crypto.price.toFixed(2)}</p>
+                <p>Price: CA$${crypto.current_price.toFixed(2)}</p>
                 <p>24h Change: ${crypto.price_change_percentage_24h.toFixed(2)}%</p>
                 <p>Market Cap: CA$${(crypto.market_cap / 1e9).toFixed(2)}B</p>
                 <p>Supply: ${(crypto.market_cap / crypto.current_price).toFixed(2)} tokens</p>
