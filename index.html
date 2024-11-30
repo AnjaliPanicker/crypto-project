@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Real-Time Cryptocurrency Tracker</h1>
+            <nav id="user-preferences">
+                <button id="sort-market-cap">Sort by Market Cap</button>
+                <button id="view-price-change">View 24h Price Change</button>
+                <button id="toggle-display">Toggle View</button>
+                <div id="filters">
+                    <label>
+                        Price Range:
+                        <input type="number" id="min-price" placeholder="Min" />
+                        <input type="number" id="max-price" placeholder="Max" />
+                    </label>
+                    <button id="apply-filters">Apply Filters</button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section id="home-view" class="view active">
+                <h2 id="header-style">Cryptocurrency List</h2>
+                <div id="crypto-container"></div>
+                <button id="compare-button" class="disabled" disabled>Compare</button>
+            </section>
+            <section id="compare-view" class="view">
+                <h2 id="header-style">Comparison</h2>
+                <div id="comparison-container"></div>
+                <button id="back-button">Back</button>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 Crypto Tracker. Powered by CoinGecko.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
